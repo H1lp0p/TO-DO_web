@@ -1,0 +1,242 @@
+:root{
+    --board-color : #d5cff5;
+    --ticket-color : #a58ad8;
+    --body-bg-color: #e0d9ee;
+
+    --board-bg-ondrag : #e2def8;
+
+    --done-main-color : #7ace8c;
+    --doing-main-color: #e47474;
+
+    --ticket-selected : #b977bb;
+    --ticket-scrollbar-color: #9e66a0;
+    --ticket-shadow: rgba(0, 0, 0, 0.288);
+
+    --interract-hover-bg: #ffffff6b;
+    --default-shadow : #ffffff7c;
+
+    --text-bg-color-board: #ab9dfd;
+}
+
+body{
+    background-color: var(--body-bg-color);
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Comfortaa', sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ticket {
+    background-color: var(--ticket-color);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 8px;
+    width: 200px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    margin: 8px;
+    word-break: break-all;
+    overflow: auto;
+    box-shadow: 5px 5px 5px var(--ticket-shadow);
+}
+
+.ticket::-webkit-scrollbar{
+    width: 16px;
+}
+
+.ticket::-webkit-scrollbar-track{
+    background-color: var(--ticket-color);
+    border-radius: 16px;
+}
+
+.ticket::-webkit-scrollbar-thumb {
+    background-color: var(--ticket-scrollbar-color);
+    border-radius: 16px;
+    border: none;
+}
+
+.selected {
+    background-color: var(--ticket-shadow);
+}
+
+#tool-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#board {
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: var(--board-color);
+    width: 90vw;
+    height: 90vh;
+}
+
+#descTitles {
+    font-size: 200%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.block{
+    display: grid;
+    grid-template-columns: repeat(4, 210px);
+    z-index: 1;
+    border: dashed 1px;
+
+    gap: 16px;
+    border-radius: 12px;
+    margin: 4px;
+    overflow: auto;
+}
+
+#done{
+    border-color : var(--done-main-color);
+}
+
+#doing{
+    border-color: var(--doing-main-color);
+}
+
+.block::-webkit-scrollbar{
+    background-color: rgba(0, 0, 0, 0);;
+}
+
+.block::-webkit-scrollbar-thumb{
+    background-color: var(--ticket-color);
+    border-radius: 16px;
+}
+
+.block::-webkit-scrollbar-track{
+    border: none;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.on-dragover {
+    background-color: var(--board-bg-ondrag);
+}
+
+.dragstart-done {
+    border : dashed var(--done-main-color);   
+}
+
+.dragstart-doing {
+    border: dashed var(--doing-main-color);
+}
+
+input{
+    font-family: 'Comfortaa', sans-serif;
+}
+
+button {
+    padding: 1%;
+    border-radius: 16px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+button:hover{
+    background-color: var(--interract-hover-bg);
+}
+
+.ticket > span{
+    font-size: large;
+    font-weight: bold;
+}
+
+.ticket > button:last-of-type {
+    border-radius: 0px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border: none;
+}
+
+.ticket > button:first-of-type{
+    border: none;
+}
+
+.ticket > button:first-of-type:hover{
+    border: none;
+    border-radius: 0;
+    background-color: var(--interract-hover-bg);
+}
+
+.ticket > input[type=text]{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.ticket > input[type=text]:hover{
+    background-color: var(--interract-hover-bg);
+}
+
+.ticket > input[type=text]:first-child{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ticket > input[type=text]:focus{
+    outline: none;
+    border-bottom: 1px;
+    background-color: var(--default-shadow);
+}
+
+input[type=file]{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+#input-file-btn{
+    user-select: none;
+    border-radius: 16px;
+    padding: 1%;
+}
+
+#input-file-btn:hover{
+    background-color: var(--interract-hover-bg);
+}
+
+@media (max-width: 1516px){
+    #board{
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+
+    .block{
+        grid-template-columns: repeat(2, 210px);
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 2013px){
+    .block{
+        grid-template-columns: repeat(3, 210px);
+    }
+}
+
+.bg-text {
+    position: absolute;
+    user-select: none;
+    transform: translate(-50%, -50%);
+}
+
+#board > .bg-text{
+    left: 50%;
+    top: 75%;
+    color: var(--text-bg-color-board);
+    font-weight: 900;
+    font-size: 500%;
+}

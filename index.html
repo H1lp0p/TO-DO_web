@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My TO-DOs</title>
+    <link href="index.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="wall">
+        <div id="tool-bar">
+            <input type="file" accept=".json" id="input-json"/>
+            <span id="input-file-btn">add File</span>
+            <button id="new-board-btn">New board</button>
+            <button id="clear-board-btn" style="display: none;">Clear</button>
+            <button id="save-btn" style="display: none;">Save</button>
+            <button id="new-ticket" style="display: none;">Add ticket</button>
+        </div>
+        <div id="board">
+            <span class="bg-text" id="board-bg-text"></span>
+            <div class="block" id="doing">
+            </div>
+            <div class="block" id="done">
+            </div>
+        </div>
+    </div>
+    <script src="board.js"></script>
+</body>
