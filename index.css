@@ -88,6 +88,7 @@ body{
 .block{
     display: grid;
     grid-template-columns: repeat(4, 210px);
+    grid-template-rows: repeat(5, 240px);
     z-index: 1;
     border: dashed 1px;
 
